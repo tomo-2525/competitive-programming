@@ -1,47 +1,31 @@
-readline = open(0).readline
-writelines = open(1, 'w').writelines
+from operator import length_hint
+from sys import stdin
+# f_i = stdin
+# q = f_i.readline()
+q = int(input())
 
-Q = int(readline())
-root = [None, None, None]
-cursor = root[1] = [root, None, None]
-# print(cursor)  #[[None, [...], None], None, None]
+d = 0
 
+from collections import deque
+L = deque()
 
-def insert(x):
-    global cursor
-    cursor[0][1] = cursor[0] = cursor = [cursor[0], cursor, x]
-    print(cursor)
-
-
-def move(d):
-    global cursor
-    if d > 0:
-        for _ in range(d):
-            cursor = cursor[1]
+for _ in range(q):
+    l = input()
+    if  l[0] == "0":
+        L.append(l[2:])
+    elif l[0] == "1":
+        r = int(l[2:])
+        L.rotate(r)
+        d -= r
     else:
-        for _ in range(-d):
-            cursor = cursor[0]
-    print(cursor)
+        L.pop()
+L.rotate(d)
+L.reverse()
+
+for i in range(len(L)):
+    print(L[i])
 
 
-def erase():
-    global cursor
-    cursor[1][0] = cursor[0]
-    cursor[0][1] = cursor = cursor[1]
-    print(cursor)
-
-
-C = [insert, move, erase].__getitem__
-for q in range(Q):
-    t, *a = map(int, readline().split())
-    C(t)(*a)
-root = root[1]
-print(root)
-ans = []
-while root[1]:
-    ans.append("%d\n" % root[2])
-    root = root[1]
-writelines(ans)
 
 
 """

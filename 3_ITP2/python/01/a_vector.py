@@ -1,3 +1,25 @@
+# -*- coding: utf-8 -*-
+import sys
+# input = sys.stdin.readline
+
+Q = int(input())
+A = []
+ans = []
+
+for _ in range(Q):
+    q = list(map(int,input().split()))
+    if q[0] == 0:
+        A.append(q[1])
+    elif q[0] == 1:
+        # ans.append(A[q[1]])
+        print(A[q[1]])
+    else:
+        A.pop()
+
+# print(*ans,sep='\n')
+
+
+""""
 class vector:
     data = []
 
@@ -29,3 +51,4 @@ for i in range(q):
 
     elif order[0] == "2":
         v.popBack()
+"""

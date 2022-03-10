@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 
 from collections import deque
+
 Q = deque()
 q = int(input())
 for i in range(q):
@@ -16,6 +18,8 @@ for i in range(q):
             Q.popleft()
         else:
             Q.pop()
+
+
 
 """class deque:
     data = []
