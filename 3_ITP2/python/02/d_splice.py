@@ -1,28 +1,35 @@
-import sys
-from collections import defaultdict, deque
-sys.stdin.readline().split()
-A = defaultdict(deque)
+from collections import deque
+from sys import stdin
+f_i = stdin
+
+# n, q = map(int, f_i.readline().split())
+n,q = map(int, input().split())
+L = [deque() for i in range(n)]
 ans = []
-for query in sys.stdin:
-    if query[0] == '0':
-        t, x = query[2:].split()
-        A[t].append(x)
-    elif query[0] == '1':
-        ans.append(' '.join(A[query[2:-1]]) + '\n')
+
+for op in (line.split() for line in f_i):
+    op_type = op[0]
+    if op_type == '0':
+        L[int(op[1])].append(op[2])
+    elif op_type == '1':
+        ans.append(' '.join(L[int(op[1])]))
     else:
-        s, t = query[2:].split()
-        if A[t]:
-            if len(A[s]) == 1:
-                A[t].append(A[s][0])
-            elif len(A[t]) == 1:
-                A[s].appendleft(A[t][0])
-                A[t] = A[s]
-            else:
-                A[t].extend(A[s])
+        s = int(op[1])
+        ls = L[s]
+        t = int(op[2])
+        lt = L[t]
+        if lt:
+            if len(ls) == 1:
+                lt.append(ls[0])
+            elif len(lt) == 1:
+                ls.appendleft(lt[0])
+                L[t] = ls
+            elif ls:
+                lt.extend(ls)
         else:
-            A[t] = A[s]
-        A[s] = deque()
-sys.stdout.writelines(ans)
+            L[t] = ls
+        L[s] = deque()
+print('\n'.join(ans))
 
 
 """n, q = map(int, input().split())
