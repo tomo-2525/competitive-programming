@@ -1,0 +1,9 @@
+n = int(input())
+A = set(map(int, input().split()))
+m = int(input())
+B = set(map(int, input().split()))
+
+if B.issubset(A):
+    print(0)
+else:
+    print(1)

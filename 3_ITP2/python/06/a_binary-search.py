@@ -1,0 +1,18 @@
+from sys import stdin
+from bisect import bisect_left
+
+
+f_i = stdin
+n = int(f_i.readline())
+A = list(map(int, f_i.readline().split()))
+A.append(1000000001)
+
+q = int(f_i.readline())
+
+for i in range(q):
+    k = int(f_i.readline())
+    print(bisect_left(A, k))
+    if k == A[bisect_left(A, k)]:
+        print('1')
+    else:
+        print('0')
