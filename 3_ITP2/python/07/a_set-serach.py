@@ -1,0 +1,12 @@
+q = int(input())
+S = set()
+
+for i in range(q):
+    op, x = map(int, input().split())
+    if op == 0:
+        S.add(x)
+        print(len(S))
+    else:
+        print(int(x in S)) # countの仕方
+    
+print(x in S)
