@@ -1,4 +1,4 @@
-[aoj](https://onlinejudge.u-aizu.ac.jp/home)  
-
-
-https://atcoder.jp/posts/261
+- [aoj](https://onlinejudge.u-aizu.ac.jp/status/users/tomori)  
+- [atcoder](https://atcoder.jp/users/tomori2525)
+- [leetcode](https://leetcode.com/u/tomori2525/)  
+- [paiza](https://paiza.jp/challenges)
